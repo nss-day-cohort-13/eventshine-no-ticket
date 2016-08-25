@@ -1,0 +1,23 @@
+{
+  "name": "eventshine",
+  "homepage": "https://github.com/nss-day-cohort-13/eventshine-no-ticket",
+  "authors": [
+    "Michael Mead <michaelmead007@icloud.com>"
+  ],
+  "description": "An event ticketing application",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-route": "^1.5.8",
+    "angular-bootstrap": "^2.1.3",
+    "bootstrap": "^3.3.7"
+  }
+}
