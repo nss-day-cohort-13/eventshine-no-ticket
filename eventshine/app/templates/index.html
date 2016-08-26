@@ -5,24 +5,18 @@
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href='{% static "bower_components/bootstrap/dist/css/bootstrap.min.css" %}'>
     <!-- <link rel="stylesheet" href="style.css"> -->
-    <title>angular app</title>
+    <title>TixIT</title>
   </head>
   <body>
     <!-- The index page. Don't need to touch it much. It's in templates
         directory. Might put a css file in templates too. :)-->
-<h1>This is the index page with ANGULAR INSTALLED.</h1>
 <div ng-app="app">
   <!-- Below is the ng view that partials will load into. -->
   <div ng-view>
 
   </div>
+</div>
   <!-- End partial view -->
-  <div class="btn-group">
-        <label class="btn btn-primary" ng-model="checkModel.left" uib-btn-checkbox>Left</label>
-        <label class="btn btn-primary" ng-model="checkModel.middle" uib-btn-checkbox>Middle</label>
-        <label class="btn btn-primary" ng-model="checkModel.right" uib-btn-checkbox>Right</label>
-    </div>
-  <a ng-href='#/events'>Hit Me </a>
 
 </div>
 
@@ -30,6 +24,10 @@
   <script type='text/javascript' src='{% static "bower_components/angular-route/angular-route.min.js" %}'></script>
   <script type='text/javascript' src='{% static "bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js" %}'></script>
   <script type='text/javascript' src='{% static "app/app.js" %}'></script>
+  <script type='text/javascript' src='{% static "app/controllers/home.js" %}'></script>
+  <script type='text/javascript' src='{% static "app/controllers/events.js" %}'></script>
+  <script type='text/javascript' src='{% static "app/controllers/tixit.js" %}'></script>
+  <script type='text/javascript' src='{% static "app/controllers/new_event.js" %}'></script>
 </body>
 
 </html>
