@@ -1,11 +1,13 @@
 angular.module('app').controller('NewEventCtrl', function ($scope) {
   $scope.today = function() {
     $scope.dt = new Date();
+    $scope.dt2 = new Date();
   };
   $scope.today();
 
   $scope.clear = function() {
     $scope.dt = null;
+    $scope.dt2 = null;
   };
 
   $scope.inlineOptions = {
@@ -46,10 +48,11 @@ angular.module('app').controller('NewEventCtrl', function ($scope) {
 
   $scope.setDate = function(year, month, day) {
     $scope.dt = new Date(year, month, day);
+    $scope.dt2 = new Date(year, month, day);
   };
 
   $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
-  $scope.format = $scope.formats[0];
+  $scope.format = $scope.formats[3];
   $scope.altInputFormats = ['M!/d!/yyyy'];
 
   $scope.popup1 = {
