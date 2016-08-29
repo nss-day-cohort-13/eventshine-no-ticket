@@ -22,7 +22,7 @@ def createUser(request):
     user = User.objects.create_user(first_name=firstname, last_name=lastname,
                                     email=email, username=username, password=password)
     user.save()
-    return HttpResponseRedirect('/#/login/')
+    return HttpResponseRedirect('/#/')
     # user = authenticate(username=username, password=password)
     # if user is not None:
     #     login(request, user)
@@ -31,3 +31,16 @@ def createUser(request):
     # else:
     #     # Return an 'invalid login' error message.
     #     ...
+
+@csrf_exempt
+def login(request):
+    user = authenticate(username, password)
+    if user is not None:
+        # A backend authenticated the credentials
+        login(request, user)
+        return HttpResponseRedirect('/#/tixit')
+
+
+    else:
+        # No backend authenticated the credentials
+        EOFError
