@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 # These are the tables for our database
@@ -20,13 +21,14 @@ class Venue(models.Model):
     address = models.CharField(max_length=200)
     eventID = models.ForeignKey('Event', on_delete=None)
 
-class User(models.Model):
-    userID = models.CharField(max_length=200)
-    name = models.CharField(max_length=200)
-    paymentName = models.CharField(max_length=200)
-    paymentNumber = models.CharField(max_length=200)
+# class User(models.Model):
+#     userID = models.CharField(max_length=200)
+#     name = models.CharField(max_length=200)
+#     paymentName = models.CharField(max_length=200)
+#     paymentNumber = models.CharField(max_length=200)
+#     password = models.CharField(max_length=100)
 
 class EventUser(models.Model):
     eventUserID = models.CharField(max_length=200)
     eventID = models.ForeignKey('Event', on_delete=None)
-    userID = models.ForeignKey('User', on_delete=None)
+    userID = models.ForeignKey(User, on_delete=None)
