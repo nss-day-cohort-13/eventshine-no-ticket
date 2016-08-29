@@ -5,17 +5,17 @@ from django.contrib.auth.models import User
 # These are the tables for our database
 # Event Table
 class Event(models.Model):
-    eventID = models.CharField(max_length=200)
     name = models.CharField(max_length=200)
-    Description = models.CharField(max_length=200)
-    City = models.CharField(max_length=200)
+    description = models.CharField(max_length=200)
+    city = models.CharField(max_length=200)
+    venueName = models.CharField(max_length=200)
     startDate = models.DateTimeField()
     endDate = models.DateTimeField()
     limit = models.IntegerField()
 
 # Venue Table...ok, you get the idea.
 class Venue(models.Model):
-    venueID = models.CharField(max_length=200)
+    # venueID = models.CharField(max_length=200)
     name = models.CharField(max_length=200)
     venue = models.CharField(max_length=200)
     address = models.CharField(max_length=200)
@@ -29,6 +29,6 @@ class Venue(models.Model):
 #     password = models.CharField(max_length=100)
 
 class EventUser(models.Model):
-    eventUserID = models.CharField(max_length=200)
+    # eventUserID = models.CharField(max_length=200)
     eventID = models.ForeignKey('Event', on_delete=None)
     userID = models.ForeignKey(User, on_delete=None)
