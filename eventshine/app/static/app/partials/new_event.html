@@ -11,26 +11,26 @@
     </div> -->
     <div class="col-sm-6">
 
-<form>
+<form action='/new_event/' method='post' class='form-new-event'>
   <div class="form-group">
     <label for="eventName">Event Name</label>
-    <input required type="text" class="form-control" placeholder="Event">
+    <input name="eventname" required type="text" class="form-control" placeholder="Event">
   </div>
   <div class="form-group">
     <label for="eventDescription">Event Description</label>
-    <input required type="text" class="form-control" placeholder="Description">
+    <input name="eventdescription" required type="text" class="form-control" placeholder="Description">
   </div>
   <div class="form-group">
     <label for="eventCity">City</label>
-    <input required type="text" class="form-control" placeholder="City">
+    <input name="city" required type="text" class="form-control" placeholder="City">
   </div>
   <div class="form-group">
     <label for="eventVenue">Event Venue</label>
-    <input required type="text" class="form-control" placeholder="Venue">
+    <input name="eventvenue" required type="text" class="form-control" placeholder="Venue">
   </div>
   <div class="form-group">
     <label for="eventAttendees">Attendee Limit</label>
-    <input required type="number" class="form-control" placeholder="Limit">
+    <input name="limit" required type="number" class="form-control" placeholder="Limit">
   </div>
 </div>
 
@@ -51,14 +51,12 @@
     }
   </style>
   <div ng-controller="NewEventCtrl">
-      <h4>Selected Date</h4>
-      <pre>Selected date is: <em>{{dt | date:'fullDate' }}</em></pre>
 
       <h4>Date: </h4>
       <div class="row">
         <div class="col-md-6">
           <p class="input-group">
-            <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+            <input name="startdate" type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
             <span class="input-group-btn">
               <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
             </span>
@@ -67,12 +65,16 @@
         <!-- <h4>End: </h4> -->
         <div class="col-md-6">
           <p class="input-group">
-            <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt2" is-open="popup2.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+            <input name="enddate" type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt2" is-open="popup2.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
             <span class="input-group-btn">
               <button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
             </span>
           </p>
         </div>
+        <div>
+
+          <h4>Selected Date</h4>
+          <pre>Selected date is: <em>{{dt | date:'fullDate' }}</em></pre>
       </div>
       <div class="row">
         <!-- <div class="col-md-6">
