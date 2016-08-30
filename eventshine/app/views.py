@@ -64,4 +64,4 @@ def new_event(request):
 
     event = Event.objects.create(name=eventname, description=eventdescription, city=city, venueName=eventvenue, limit=limit, startDate=startdate, endDate=enddate)
     event.save()
-    return HttpResponseRedirect('/#/conf/')
+    return HttpResponseRedirect('/#/new_event_conf/')
