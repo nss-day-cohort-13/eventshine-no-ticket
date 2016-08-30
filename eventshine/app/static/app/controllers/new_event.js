@@ -51,7 +51,7 @@ angular.module('app').controller('NewEventCtrl', function ($scope) {
     $scope.dt2 = new Date(year, month, day);
   };
 
-  $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
+  $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'MM/dd/yy', 'shortDate'];
   $scope.format = $scope.formats[3];
   $scope.altInputFormats = ['M!/d!/yyyy'];
 

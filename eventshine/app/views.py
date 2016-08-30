@@ -6,12 +6,14 @@ from django.core import serializers
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from django.views.decorators.csrf import csrf_exempt
-
+from .models import *
+import datetime
 
 # The Generic View that now relies on Angular to do the rest.
 class IndexView(generic.TemplateView):
   template_name = 'index.html'
 
+# New User Registration (Interacts with the registration partial, js, and models.py --Some files are currently being renamed, Sorry I can't be more specific.)
 @csrf_exempt
 def createUser(request):
     firstname = request.POST['firstname']
@@ -31,3 +33,21 @@ def createUser(request):
     # else:
     #     # Return an 'invalid login' error message.
     #     ...
+
+# New Event Creation (Interacts with new_event.html and new_event.js. And models.py.)
+@csrf_exempt
+def new_event(request):
+    eventname = request.POST['eventname']
+    eventdescription = request.POST['eventdescription']
+    city = request.POST['city']
+    eventvenue = request.POST['eventvenue']
+    limit = request.POST['limit']
+    startdate = request.POST['startdate']
+    enddate = request.POST['enddate']
+    startdate = datetime.datetime.strptime(startdate, '%m/%d/%y')
+    enddate = datetime.datetime.strptime(enddate, '%m/%d/%y')
+
+
+    event = Event.objects.create(name=eventname, description=eventdescription, city=city, venueName=eventvenue, limit=limit, startDate=startdate, endDate=enddate)
+    event.save()
+    return HttpResponseRedirect('/#/conf/')
