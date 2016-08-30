@@ -1,8 +1,8 @@
 // The route provider. This is the main JS page.
 angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngCookies'])
   .config(($routeProvider, $httpProvider) => {
-    // $httpProvider.defaults.xsrfCookieName = 'csrftoken';
-    // $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
+    $httpProvider.defaults.xsrfCookieName = 'csrftoken';
+    $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
     $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
     // $http.defaults.headers.post['X-CSRFToken'] = $cookies.csrftoken;
     $routeProvider
@@ -34,3 +34,16 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngCookies'])
     function($http, $cookies) {
         $http.defaults.headers.post['X-CSRFToken'] = $cookies.csrftoken;
     }]);
+
+
+
+
+// // bens advice
+// angular.module('TicketBurst')
+// .config(['$interpolateProvider', '$routeProvider', '$httpProvider',
+// function($interpolateProvider, $routeProvider, $httpProvider) {
+//   $interpolateProvider.startSymbol('((');
+//   $interpolateProvider.endSymbol('))');
+//   $httpProvider.defaults.xsrfCookieName = 'csrftoken';
+//   $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
+//   //  Changed the symbols on line 3 and 4 so Django doesn't try to inject data

@@ -5,6 +5,6 @@ app_name = "app"
 urlpatterns = [
     url(r'^$', views.IndexView.as_view(), name='index'),
     url(r'^createUser/$', views.createUser, name='createUser'),
-    url(r'^login/$', views.login, name='login')
+    url(r'^login/$', views.login, name='login'),
     url(r'^new_event/$', views.new_event, name='new_event'),
 ]
