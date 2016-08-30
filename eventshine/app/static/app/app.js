@@ -26,6 +26,10 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngCookies'])
         templateUrl: '/static/app/partials/new_event.html',
         controller: 'NewEventCtrl',
       })
+    .when('/new_event_conf', {
+        templateUrl: '/static/app/partials/new_event_conf.html',
+        controller: 'TixitCtrl',
+      })
     }
   )
   .run([
@@ -34,16 +38,3 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngCookies'])
     function($http, $cookies) {
         $http.defaults.headers.post['X-CSRFToken'] = $cookies.csrftoken;
     }]);
-
-
-
-
-// // bens advice
-// angular.module('TicketBurst')
-// .config(['$interpolateProvider', '$routeProvider', '$httpProvider',
-// function($interpolateProvider, $routeProvider, $httpProvider) {
-//   $interpolateProvider.startSymbol('((');
-//   $interpolateProvider.endSymbol('))');
-//   $httpProvider.defaults.xsrfCookieName = 'csrftoken';
-//   $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
-//   //  Changed the symbols on line 3 and 4 so Django doesn't try to inject data

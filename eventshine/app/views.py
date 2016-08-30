@@ -95,9 +95,4 @@ def new_event(request):
 
     event = Event.objects.create(name=eventname, description=eventdescription, city=city, venueName=eventvenue, limit=limit, startDate=startdate, endDate=enddate)
     event.save()
-    return HttpResponseRedirect('/#/conf/')
-
-
-# CREATE USER #
-# @csrf_exempt
-# def create_user_object(request):
+    return HttpResponseRedirect('/#/new_event_conf/')
