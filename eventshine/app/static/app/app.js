@@ -1,8 +1,8 @@
 // The route provider. This is the main JS page.
 angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngCookies'])
   .config(($routeProvider, $httpProvider) => {
-    // $httpProvider.defaults.xsrfCookieName = 'csrftoken';
-    // $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
+    $httpProvider.defaults.xsrfCookieName = 'csrftoken';
+    $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
     $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
     // $http.defaults.headers.post['X-CSRFToken'] = $cookies.csrftoken;
     $routeProvider
