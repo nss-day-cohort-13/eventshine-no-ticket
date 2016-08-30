@@ -38,7 +38,7 @@ def createUser(request):
 def login(request):
     username = request.POST['username']
     password = request.POST['password']
-    user = authenticate(username=username, password=password)
+    user = authenticate(username, password)
     if user is not None:
         # A backend authenticated the credentials
         login(username=username, password=password)
@@ -65,3 +65,7 @@ def new_event(request):
     event = Event.objects.create(name=eventname, description=eventdescription, city=city, venueName=eventvenue, limit=limit, startDate=startdate, endDate=enddate)
     event.save()
     return HttpResponseRedirect('/#/new_event_conf/')
+
+@csrf_exempt
+def all_events():
+    pass
