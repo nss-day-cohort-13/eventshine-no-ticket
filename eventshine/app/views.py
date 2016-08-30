@@ -24,7 +24,7 @@ def createUser(request):
     user = User.objects.create_user(first_name=firstname, last_name=lastname,
                                     email=email, username=username, password=password)
     user.save()
-    return HttpResponseRedirect('/#/login/')
+    return HttpResponseRedirect('/#/')
     # user = authenticate(username=username, password=password)
     # if user is not None:
     #     login(request, user)
@@ -34,6 +34,20 @@ def createUser(request):
     #     # Return an 'invalid login' error message.
     #     ...
 
+@csrf_exempt
+def login(request):
+    username = request.POST['username']
+    password = request.POST['password']
+    user = authenticate(username=username, password=password)
+    if user is not None:
+        # A backend authenticated the credentials
+        login(username=username, password=password)
+        return HttpResponseRedirect('/#/tixit')
+
+
+    else:
+        # No backend authenticated the credentials
+        EOFError
 # New Event Creation (Interacts with new_event.html and new_event.js. And models.py.)
 @csrf_exempt
 def new_event(request):

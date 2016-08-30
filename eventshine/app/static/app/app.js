@@ -6,10 +6,14 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngCookies'])
     $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
     // $http.defaults.headers.post['X-CSRFToken'] = $cookies.csrftoken;
     $routeProvider
-    .when('/', {
+    .when('/home', {
         templateUrl: '/static/app/partials/home.html',
         controller: 'HomeCtrl',
       })
+    .when('/', {
+          templateUrl: '/static/app/partials/login.html',
+          controller: 'LoginCtrl',
+        })
     .when('/events', {
         templateUrl: '/static/app/partials/events.html',
         controller: 'EventsCtrl',
