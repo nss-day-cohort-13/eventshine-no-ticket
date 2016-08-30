@@ -22,6 +22,10 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngCookies'])
         templateUrl: '/static/app/partials/new_event.html',
         controller: 'NewEventCtrl',
       })
+    .when('/new_event_conf', {
+        templateUrl: '/static/app/partials/new_event_conf.html',
+        controller: 'TixitCtrl',
+      })
     }
   )
   .run([
