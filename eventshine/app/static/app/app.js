@@ -7,7 +7,8 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngCookies'])
     $routeProvider
     .when('/home', {
         templateUrl: '/static/app/partials/home.html',
-        controller: 'HomeCtrl',
+        controller: 'registerCtrl',
+        controllerAs: 'register'
       })
     .when('/', {
           templateUrl: '/static/app/partials/login.html',
