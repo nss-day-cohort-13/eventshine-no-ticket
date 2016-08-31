@@ -15,7 +15,7 @@ angular.module('app')
                 'last_name': register.lastName,
             }
         }).success(() => {
-            $location.path('/static/app/partials/new_event.html')
+            $location.path('/tixit')
         })
     }
 })
