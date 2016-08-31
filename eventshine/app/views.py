@@ -50,13 +50,15 @@ def login(request):
     user = authenticate(username=username, password=password)
     if user is not None:
         # A backend authenticated the credentials
-        login(username=username, password=password)
+        login(request)
         return HttpResponseRedirect('/#/tixit')
-
-
     else:
+        return  render(request, 'auth_lifecycle/user_profile.html',
+        context_instance=RequestContext(request))
         # No backend authenticated the credentials
-        EOFError
+        # EOFError
+
+
 # New Event Creation (Interacts with new_event.html and new_event.js. And models.py.)
 @csrf_exempt
 def new_event(request):
@@ -74,3 +76,7 @@ def new_event(request):
     event = Event.objects.create(name=eventname, description=eventdescription, city=city, venueName=eventvenue, limit=limit, startDate=startdate, endDate=enddate)
     event.save()
     return HttpResponseRedirect('/#/new_event_conf/')
+
+@csrf_exempt
+def all_events():
+    pass
