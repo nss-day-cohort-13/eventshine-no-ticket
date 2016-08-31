@@ -6,7 +6,7 @@ angular.module('app')
         $http({
             url: '/createUser/',
             method: 'POST',
-            headers: {'Content-Type':      'application/x-www-form-urlencoded'},
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
             data: {
                 'username': register.userName,
                 'password': register.password,
