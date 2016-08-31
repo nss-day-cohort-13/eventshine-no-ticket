@@ -2,7 +2,7 @@ angular.module('app')
 .controller("createNewEventCtrl", function($http, $location, $scope){
     const createNewEvent = this;
     createNewEvent.makeEvent = function() {
-        console.log('This works');
+        // console.log('This works');
         $http({
             url: '/new_event/',
             method: 'POST',

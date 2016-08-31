@@ -79,7 +79,7 @@
                     <div>
                         <h4>Date: </h4>
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-sm-12">
                                 <p class="input-group">
                                     <input
                                         name="startDate"
@@ -87,7 +87,7 @@
                                         class="form-control"
                                         uib-datepicker-popup="((format))"
                                         ng-model="createNewEvent.dt"
-                                        is-open="popup1.opened"
+                                        is-open="createNewEvent.popup1.opened"
                                         datepicker-options="dateOptions"
                                         ng-required="true"
                                         close-text="Close"
@@ -105,7 +105,7 @@
                                 </p>
                             </div>
 
-                            <div class="col-md-6 form-group">
+                            <div class="col-sm-12 ">
                                 <p class="input-group">
                                     <input
                                         name="endDate"
@@ -113,7 +113,7 @@
                                         class="form-control"
                                         uib-datepicker-popup="((format))"
                                         ng-model="createNewEvent.dt2"
-                                        is-open="popup2.opened"
+                                        is-open="createNewEvent.popup2.opened"
                                         datepicker-options="dateOptions"
                                         ng-required="true"
                                         close-text="Close"
@@ -129,21 +129,22 @@
                                     </span>
                                 </p>
                             </div>
+                          </div>
 
                             <!-- <div class="col-sm-12 form-group">
                                 <h4>Selected Date</h4>
                                 <pre>Selected date is:
                                     <em>{{dt | date:'fullDate' }}</em>
                                 </pre>
-                            </div>
- -->
+                            </div> -->
+
                             <div class="row">
                                 <!-- <div class="col-md-6">
               <label>Format: <span class="muted-text">(manual alternate <em>{{altInputFormats[0]}}</em>)</span></label> <select class="form-control" ng-model="format" ng-options="f for f in formats"><option></option></select>
             </div> -->
                             </div>
 
-                            <hr />
+                            <!-- <hr /> -->
                             <button
                                 type="button"
                                 class="btn btn-sm btn-info"
@@ -164,15 +165,15 @@
 
                     <!-- submit button -->
                     <div class="row">
-                        <div class="col-sm-4"></div>
-                        <div class="col-sm-4 form-group">
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-10 form-group">
                             <button
                                 ng-click="createNewEvent.makeEvent()"
 
-                                class="btn btn-primary btn-block">Make Your Event For Realz!
+                                class="btn btn-primary ">Make Your Event For Realz!
                             </button>
                         </div>
-                        <div class="col-sm-4"></div>
+                        <div class="col-sm-1"></div>
                     </div>
             <!-- /form> -->
             <!-- End Form -->
