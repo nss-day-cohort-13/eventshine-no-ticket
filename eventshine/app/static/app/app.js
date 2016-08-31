@@ -1,7 +1,9 @@
 // The route provider. This is the main JS page.
 angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngCookies'])
-  .config(($routeProvider, $httpProvider) => {
+  .config(($routeProvider, $httpProvider, $interpolateProvider) => {
     // Lines 5 and 6: csrf token is a django thing (like an auth token but not actualy an auth token) that prevents bad-actor third parties from posting to the database in place of an authentic user. Sets Django token in javascript.
+    $interpolateProvider.startSymbol('((');
+    $interpolateProvider.endSymbol('))');
     $httpProvider.defaults.xsrfCookieName = 'csrftoken';
     $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
     $routeProvider

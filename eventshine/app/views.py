@@ -87,6 +87,6 @@ def new_event(request):
     event.save()
     return HttpResponseRedirect('/#/new_event_conf/')
 
-@csrf_exempt
-def all_events():
-    pass
+def all_events(request):
+    allEvents = Event.objects.all()
+    return HttpResponse(serializers.serialize('json', allEvents), content_type='application/json')

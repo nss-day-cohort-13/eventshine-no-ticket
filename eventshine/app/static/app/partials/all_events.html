@@ -7,43 +7,33 @@
 
   </div>
   <div class="col-sm-10">
+<div ng-model="events">
 
-  <table class="table table-striped">
+</div>
+  <table class="table table-striped" >
     <tr>
-    <th class="">header</th>
-    <th class="">header</th>
-    <th class="">header</th>
-    <th class="">header</th>
-    <th class="">header</th>
+    <th class="">Name</th>
+    <th class="">Start Date</th>
+    <th class="">End Date</th>
+    <th class="">Description</th>
+    <th class="">City</th>
+    <th class="">Venue</th>
     </tr>
-    <tr>
-    <td class="">insert here</td>
-    <td class="">insert here</td>
-    <td class="">insert here</td>
-    <td class="">insert here</td>
-    <td class="">insert here</td>
+    <tr ng-repeat='event in events'>
+      <td class="">((event.fields.name))</td>
+      <td class="">((event.fields.startDate))</td>
+      <td class="">((event.fields.endDate))</td>
+      <td class="">((event.fields.description))</td>
+      <td class="">((event.fields.city))</td>
+      <td class="">((event.fields.venueName))</td>
+      <td>
+        <button type="button" class="btn btn-primary">
+            Go to event!
+        </button>
+      </td>
+
     </tr>
-    <tr>
-    <td class="">insert here</td>
-    <td class="">insert here</td>
-    <td class="">insert here</td>
-    <td class="">insert here</td>
-    <td class="">insert here</td>
-    </tr>
-    <tr>
-    <td class="">insert here</td>
-    <td class="">insert here</td>
-    <td class="">insert here</td>
-    <td class="">insert here</td>
-    <td class="">insert here</td>
-    </tr>
-    <tr>
-    <td class="">insert here</td>
-    <td class="">insert here</td>
-    <td class="">insert here</td>
-    <td class="">insert here</td>
-    <td class="">insert here</td>
-    </tr>
+
   </table>
 
 </div>
