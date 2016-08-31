@@ -19,14 +19,14 @@ def createUser(request):
     data = json.loads(request.body.decode())
 
 
-    firstname = data['first_name']
-    lastname = data['last_name']
+    first_name = data['first_name']
+    last_name = data['last_name']
     email = data['email']
     username = data['username']
     password = data['password']
     user = User.objects.create_user(
-        first_name=firstname,
-        last_name=lastname,
+        first_name=first_name,
+        last_name=last_name,
         email=email,
         username=username,
         password=password
@@ -43,10 +43,11 @@ def createUser(request):
     #     # Return an 'invalid login' error message.
     #     ...
 
-@csrf_exempt
+# @csrf_exempt
 def login(request):
-    username = request.POST['username']
-    password = request.POST['password']
+    data = json.loads(request.body.decode())
+    username = data['username']
+    password = data['password']
     user = authenticate(username=username, password=password)
     if user is not None:
         # A backend authenticated the credentials
@@ -58,15 +59,16 @@ def login(request):
         # No backend authenticated the credentials
         EOFError
 # New Event Creation (Interacts with new_event.html and new_event.js. And models.py.)
-@csrf_exempt
+# @csrf_exempt
 def new_event(request):
-    eventname = request.POST['eventname']
-    eventdescription = request.POST['eventdescription']
-    city = request.POST['city']
-    eventvenue = request.POST['eventvenue']
-    limit = request.POST['limit']
-    startdate = request.POST['startdate']
-    enddate = request.POST['enddate']
+    data = json.loads(request.body.decode())
+    eventname = data['eventname']
+    eventdescription = data['eventdescription']
+    city = data['city']
+    eventvenue = data['eventvenue']
+    limit = data['limit']
+    startdate = data['startdate']
+    enddate = data['enddate']
     startdate = datetime.datetime.strptime(startdate, '%m/%d/%y')
     enddate = datetime.datetime.strptime(enddate, '%m/%d/%y')
 

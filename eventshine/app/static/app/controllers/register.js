@@ -1,16 +1,18 @@
 angular.module('app')
-.controller("registerCtrl", function($http, $location){
-    $scope.registerUser = function() {
+.controller("registerCtrl", function($http, $location, $scope){
+    const register = this;
+    register.registerUser = function() {
+        console.log('This works');
         $http({
-            url: 'createUser/',
+            url: '/createUser/',
             method: 'POST',
             headers: {'Content-Type':      'application/x-www-form-urlencoded'},
             data: {
-                'username': username,
-                'password': password,
-                'email': email,
-                'first_name': firstName,
-                'last_name': lastName,
+                'username': register.userName,
+                'password': register.password,
+                'email': register.email,
+                'first_name': register.firstName,
+                'last_name': register.lastName,
             }
         }).success(() => {
             $location.path('/static/app/partials/new_event.html')
