@@ -64,18 +64,26 @@ def login(request):
 # @csrf_exempt
 def new_event(request):
     data = json.loads(request.body.decode())
+
     eventname = data['eventname']
     eventdescription = data['eventdescription']
-    city = data['city']
+    city = data['eventcity']
     eventvenue = data['eventvenue']
-    limit = data['limit']
-    startdate = data['startdate']
-    enddate = data['enddate']
+    limit = data['eventattendeelimit']
+    startdate = data['eventstartdate']
+    enddate = data['eventenddate']
     startdate = datetime.datetime.strptime(startdate, '%m/%d/%y')
     enddate = datetime.datetime.strptime(enddate, '%m/%d/%y')
+    event = Event.objects.create(
+        name = eventname,
+        description = eventdescription,
+        city = city,
+        venueName = eventvenue,
+        limit = limit,
+        startDate = startdate,
+        endDate = enddate
+    )
 
-
-    event = Event.objects.create(name=eventname, description=eventdescription, city=city, venueName=eventvenue, limit=limit, startDate=startdate, endDate=enddate)
     event.save()
     return HttpResponseRedirect('/#/new_event_conf/')
 
