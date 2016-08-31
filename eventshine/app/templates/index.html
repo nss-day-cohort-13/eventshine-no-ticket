@@ -1,7 +1,6 @@
 {% load staticfiles %}
 <!DOCTYPE html>
 <html>
-
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href='{% static "bower_components/bootstrap/dist/css/bootstrap.min.css" %}'>
@@ -13,13 +12,15 @@
             directory. Might put a css file in templates too. :)-->
         <div ng-app="app">
             <!-- Below is the ng view that partials will load into. -->
-            <div ng-view>
-
-            </div>
+            <div ng-view></div>
         </div>
         <!-- End partial view -->
 
-        </div>
+        <!-- Dependency Scripts -->
+        <script type='text/javascript' src='{% static "bower_components/angular/angular.min.js" %}'></script>
+        <script type='text/javascript' src='{% static "bower_components/angular-route/angular-route.min.js" %}'></script>
+        <script type='text/javascript' src='{% static "bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js" %}'></script>
+        <script type='text/javascript' src='{% static "bower_components/angular-cookies/angular-cookies.min.js" %}'></script>
 
         <!-- Dependency Scripts -->
         <script type='text/javascript' src='{% static "bower_components/angular/angular.min.js" %}'></script>
@@ -35,6 +36,5 @@
         <script type='text/javascript' src='{% static "app/controllers/tixit.js" %}'></script>
         <script type='text/javascript' src='{% static "app/controllers/new_event.js" %}'></script>
         <script type='text/javascript' src='{% static "app/controllers/all_events.js" %}'></script>
-
     </body>
 </html>

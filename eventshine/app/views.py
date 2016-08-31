@@ -8,22 +8,30 @@ from django.contrib.auth.models import User
 from django.views.decorators.csrf import csrf_exempt
 from .models import *
 import datetime
-import requests
+import json
 
 # The Generic View that now relies on Angular to do the rest.
 class IndexView(generic.TemplateView):
   template_name = 'index.html'
 
 # New User Registration (Interacts with the registration partial, js, and models.py --Some files are currently being renamed, Sorry I can't be more specific.)
-@csrf_exempt
 def createUser(request):
-    firstname = request.POST['firstname']
-    lastname = request.POST['lastname']
-    email = request.POST['email']
-    username = request.POST['username']
-    password = request.POST['password']
-    user = User.objects.create_user(first_name=firstname, last_name=lastname,
-                                    email=email, username=username, password=password)
+    data = json.loads(request.body.decode())
+
+
+    firstname = data['first_name']
+    lastname = data['last_name']
+    email = data['email']
+    username = data['username']
+    password = data['password']
+    user = User.objects.create_user(
+        first_name=firstname,
+        last_name=lastname,
+        email=email,
+        username=username,
+        password=password
+    )
+
     user.save()
     return HttpResponseRedirect('/#/')
     # user = authenticate(username=username, password=password)
