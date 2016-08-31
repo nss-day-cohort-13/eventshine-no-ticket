@@ -8,6 +8,7 @@ from django.contrib.auth.models import User
 from django.views.decorators.csrf import csrf_exempt
 from .models import *
 import datetime
+import requests
 
 # The Generic View that now relies on Angular to do the rest.
 class IndexView(generic.TemplateView):
@@ -38,16 +39,18 @@ def createUser(request):
 def login(request):
     username = request.POST['username']
     password = request.POST['password']
-    user = authenticate(username, password)
+    user = authenticate(username=username, password=password)
     if user is not None:
         # A backend authenticated the credentials
-        login(username=username, password=password)
+        login(request)
         return HttpResponseRedirect('/#/tixit')
-
-
     else:
+        return  render(request, 'auth_lifecycle/user_profile.html',
+        context_instance=RequestContext(request))
         # No backend authenticated the credentials
-        EOFError
+        # EOFError
+
+
 # New Event Creation (Interacts with new_event.html and new_event.js. And models.py.)
 @csrf_exempt
 def new_event(request):
