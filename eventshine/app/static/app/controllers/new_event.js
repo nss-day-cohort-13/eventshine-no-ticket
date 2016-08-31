@@ -1,22 +1,22 @@
-angular.module('app').controller('NewEventCtrl', function($scope) {
-    $scope.today = function() {
-        $scope.dt = new Date();
-        $scope.dt2 = new Date();
+angular.module('app').controller('NewEventCtrl', function(createNewEvent) {
+    createNewEvent.today = function() {
+        createNewEvent.dt = new Date();
+        createNewEvent.dt2 = new Date();
     };
-    $scope.today();
+    createNewEvent.today();
 
-    $scope.clear = function() {
-        $scope.dt = null;
-        $scope.dt2 = null;
+    createNewEvent.clear = function() {
+        createNewEvent.dt = null;
+        createNewEvent.dt2 = null;
     };
 
-    $scope.inlineOptions = {
+    createNewEvent.inlineOptions = {
         customClass: getDayClass,
         minDate: new Date(),
         showWeeks: true
     };
 
-    $scope.dateOptions = {
+    createNewEvent.dateOptions = {
         dateDisabled: disabled,
         formatYear: 'yy',
         maxDate: new Date(2020, 5, 22),
@@ -31,35 +31,35 @@ angular.module('app').controller('NewEventCtrl', function($scope) {
         return mode === 'day' && (date.getDay() === 0 || date.getDay() === 6);
     }
 
-    $scope.toggleMin = function() {
-        $scope.inlineOptions.minDate = $scope.inlineOptions.minDate ? null : new Date();
-        $scope.dateOptions.minDate = $scope.inlineOptions.minDate;
+    createNewEvent.toggleMin = function() {
+        createNewEvent.inlineOptions.minDate = createNewEvent.inlineOptions.minDate ? null : new Date();
+        createNewEvent.dateOptions.minDate = createNewEvent.inlineOptions.minDate;
     };
 
-    $scope.toggleMin();
+    createNewEvent.toggleMin();
 
-    $scope.open1 = function() {
-        $scope.popup1.opened = true;
+    createNewEvent.open1 = function() {
+        createNewEvent.popup1.opened = true;
     };
 
-    $scope.open2 = function() {
-        $scope.popup2.opened = true;
+    createNewEvent.open2 = function() {
+        createNewEvent.popup2.opened = true;
     };
 
-    $scope.setDate = function(year, month, day) {
-        $scope.dt = new Date(year, month, day);
-        $scope.dt2 = new Date(year, month, day);
+    createNewEvent.setDate = function(year, month, day) {
+        createNewEvent.dt = new Date(year, month, day);
+        createNewEvent.dt2 = new Date(year, month, day);
     };
 
-    $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'MM/dd/yy', 'shortDate'];
-    $scope.format = $scope.formats[3];
-    $scope.altInputFormats = ['M!/d!/yyyy'];
+    createNewEvent.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'MM/dd/yy', 'shortDate'];
+    createNewEvent.format = createNewEvent.formats[3];
+    createNewEvent.altInputFormats = ['M!/d!/yyyy'];
 
-    $scope.popup1 = {
+    createNewEvent.popup1 = {
         opened: false
     };
 
-    $scope.popup2 = {
+    createNewEvent.popup2 = {
         opened: false
     };
 
@@ -67,7 +67,7 @@ angular.module('app').controller('NewEventCtrl', function($scope) {
     tomorrow.setDate(tomorrow.getDate() + 1);
     var afterTomorrow = new Date();
     afterTomorrow.setDate(tomorrow.getDate() + 1);
-    $scope.events = [{
+    createNewEvent.events = [{
         date: tomorrow,
         status: 'full'
     }, {
@@ -81,11 +81,11 @@ angular.module('app').controller('NewEventCtrl', function($scope) {
         if (mode === 'day') {
             var dayToCheck = new Date(date).setHours(0, 0, 0, 0);
 
-            for (var i = 0; i < $scope.events.length; i++) {
-                var currentDay = new Date($scope.events[i].date).setHours(0, 0, 0, 0);
+            for (var i = 0; i < createNewEvent.events.length; i++) {
+                var currentDay = new Date(createNewEvent.events[i].date).setHours(0, 0, 0, 0);
 
                 if (dayToCheck === currentDay) {
-                    return $scope.events[i].status;
+                    return createNewEvent.events[i].status;
                 }
             }
         }

@@ -72,8 +72,8 @@ def new_event(request):
     limit = data['eventattendeelimit']
     startdate = data['eventstartdate']
     enddate = data['eventenddate']
-    startdate = datetime.datetime.strptime(startdate, '%m/%d/%y')
-    enddate = datetime.datetime.strptime(enddate, '%m/%d/%y')
+    # startdate = datetime.datetime.strptime(startdate, '%m/%d/%y')
+    # enddate = datetime.datetime.strptime(enddate, '%m/%d/%y')
     event = Event.objects.create(
         name = eventname,
         description = eventdescription,

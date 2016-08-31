@@ -26,7 +26,8 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngCookies'])
       })
     .when('/new_event', {
         templateUrl: '/static/app/partials/new_event.html',
-        controller: 'NewEventCtrl',
+        controller: 'createNewEventCtrl',
+        controllerAs: 'createNewEvent'
       })
     .when('/new_event_conf', {
         templateUrl: '/static/app/partials/new_event_conf.html',
